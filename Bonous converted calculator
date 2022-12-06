@@ -1,0 +1,11 @@
+#solving no:1
+
+ salary=float(input('Enter your salary:'))
+ job_age=int(input('Enter your service year:'))
+ bonous = salary * (5 / 100)
+ if job_age>=5:
+     print("your bonous amount is: ",bonous)
+ elif job_age>=10:
+     print('Your bonous amount is:',(salary*(10/100)))
+ else:
+     print("no bonous")
