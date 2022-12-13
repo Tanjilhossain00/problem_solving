@@ -1,0 +1,22 @@
+p1=input('First player:')
+p2=input('Second player:')
+if p1==p2:
+    print('Tie')
+elif p1=='rock':
+    if p2=='scissor':
+        print('First payer win')
+    else:
+        print('second player win')
+elif p1=='scissor':
+    if p2=='paper':
+        print('First player win')
+    else:
+        print('Second player win')
+
+elif p1=='paper':
+    if p2=='rock':
+        print('First player win')
+    else:
+        print('second player win')
+else:
+    print('Invaild input ')
