@@ -1,0 +1,17 @@
+#Gdc and Lcd calulator
+
+def gdc(x,y):
+    smallest=min(x,y)
+    gdc=1
+    for i in range(1,smallest+1):
+        if x%i==0 and y%i==0:
+            gdc=i
+    return gdc
+
+
+
+x=int(input('Enter number:'))
+y=int(input('Enter number:'))
+print('gdc=',gdc(x,y))
+lcd=x*y/gdc(x,y)
+print('lcd=',lcd)
