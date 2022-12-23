@@ -4,8 +4,8 @@ class TreeNode:
         self.children=[]
         self.parent=None
     def add_child(self,child):
-        child.parent=self
         self.children.append(child)
+        child.parent=self
     def get_level(self):
         level=0
         p=self.parent
@@ -13,65 +13,60 @@ class TreeNode:
             level+=1
             p=p.parent
         return level
-    def print_tree(self):
-        space='  '*self.get_level()*3
-        prifix=space+'|-->' if self.parent else ""
-        print(prifix+self.data)
+    def print(self):
+        space=' '*self.get_level()*3
+        prefix=space+'|--> ' if self.parent else ''
+        print(prefix+self.data)
         if self.children:
             for child in self.children:
-                child.print_tree()
-def built_tree():
-    country1=TreeNode("India")
+                child.print()
+def get_tree():
+    son1=TreeNode('Jahangir Kabir')
+    son1.add_child(TreeNode('Tamim'))
+    son1.add_child(TreeNode('Tasnim'))
 
-    brance=TreeNode('Gujrat')
+    son2=TreeNode('Alamgir Kabir')
+    son2.add_child(TreeNode('Arafat'))
+    son2.add_child(TreeNode('Jui'))
 
-    brance.add_child(TreeNode('Ahmedabad'))
-    brance.add_child(TreeNode('Broda'))
+    son3=TreeNode('Mahbubur Rahman babu')
+    son3.add_child(TreeNode('Rasel'))
+    son3.add_child(TreeNode('Shah Riaz'))
 
-    brance2=TreeNode('Karnatak')
-    brance2.add_child(TreeNode('Bangalore'))
-    brance2.add_child(TreeNode('Mysore'))
+    son4=TreeNode('Habibur Rahman Habu')
+    fson=TreeNode('Toma')
+    fson.add_child(TreeNode('Redwan'))
+    son4.add_child(fson)
+    son4.add_child(TreeNode('Sakib'))
+    son4.add_child(TreeNode('Toha'))
 
-    brance3=TreeNode('West Bangle')
-    brance3.add_child(TreeNode('Kolkata'))
-    brance3.add_child(TreeNode('Meghalaya'))
-    brance3.add_child(TreeNode('Hingalgonj'))
+    son5=TreeNode('Nasima')
+    fson1=TreeNode('Mili')
+    fson1.add_child(TreeNode('Maliha'))
+    fson1.add_child(TreeNode('Manha'))
+    son5.add_child(fson1)
+    son5.add_child(TreeNode('Moon'))
+    son5.add_child(TreeNode('Noyon'))
+    son5.add_child(TreeNode('Mariyam'))
 
-
-    #india child
-    country1.add_child(brance)
-    country1.add_child(brance2)
-    country1.add_child(brance3)
-
-    # usa brance
-    country2 = TreeNode('Usa')
-
-    usa1=TreeNode('New Jersy')
-    usa1.add_child(TreeNode('Princiton'))
-    usa1.add_child(TreeNode('Torento'))
-
-    usa2=TreeNode('California')
-    usa2.add_child(TreeNode('San Francisco'))
-    usa2.add_child(TreeNode('Mountain View'))
-    usa2.add_child(TreeNode('Polo Alto'))
-
-    usa3=TreeNode('Las vegas')
-
-    # usa Child
-
-    country2.add_child(usa1)
-    country2.add_child(usa2)
-    country2.add_child(usa3)
+    son6=TreeNode('Nasrin')
+    son6.add_child(TreeNode('Nafiz'))
+    son6.add_child(TreeNode('Nabil'))
+    son6.add_child(TreeNode('Mahir'))
 
 
 
 
+    grandfather=TreeNode('> Nowsher Ali sardar')
+    grandfather.add_child(son1)
+    grandfather.add_child(son2)
+    grandfather.add_child(son5)
+    grandfather.add_child(son3)
+    grandfather.add_child(son4)
+    grandfather.add_child(son6)
 
-# main parent
-    root=TreeNode('   World ')
-    root.add_child(country1)
-    root.add_child(country2)
 
-    root.print_tree()
+
+    grandfather.print()
 if __name__=='__main__':
-    built_tree()
+    get_tree()
