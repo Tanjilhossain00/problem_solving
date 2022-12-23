@@ -1,0 +1,77 @@
+class TreeNode:
+    def __init__(self,data):
+        self.data=data
+        self.children=[]
+        self.parent=None
+    def add_child(self,child):
+        child.parent=self
+        self.children.append(child)
+    def get_level(self):
+        level=0
+        p=self.parent
+        while p:
+            level+=1
+            p=p.parent
+        return level
+    def print_tree(self):
+        space='  '*self.get_level()*3
+        prifix=space+'|-->' if self.parent else ""
+        print(prifix+self.data)
+        if self.children:
+            for child in self.children:
+                child.print_tree()
+def built_tree():
+    country1=TreeNode("India")
+
+    brance=TreeNode('Gujrat')
+
+    brance.add_child(TreeNode('Ahmedabad'))
+    brance.add_child(TreeNode('Broda'))
+
+    brance2=TreeNode('Karnatak')
+    brance2.add_child(TreeNode('Bangalore'))
+    brance2.add_child(TreeNode('Mysore'))
+
+    brance3=TreeNode('West Bangle')
+    brance3.add_child(TreeNode('Kolkata'))
+    brance3.add_child(TreeNode('Meghalaya'))
+    brance3.add_child(TreeNode('Hingalgonj'))
+
+
+    #india child
+    country1.add_child(brance)
+    country1.add_child(brance2)
+    country1.add_child(brance3)
+
+    # usa brance
+    country2 = TreeNode('Usa')
+
+    usa1=TreeNode('New Jersy')
+    usa1.add_child(TreeNode('Princiton'))
+    usa1.add_child(TreeNode('Torento'))
+
+    usa2=TreeNode('California')
+    usa2.add_child(TreeNode('San Francisco'))
+    usa2.add_child(TreeNode('Mountain View'))
+    usa2.add_child(TreeNode('Polo Alto'))
+
+    usa3=TreeNode('Las vegas')
+
+    # usa Child
+
+    country2.add_child(usa1)
+    country2.add_child(usa2)
+    country2.add_child(usa3)
+
+
+
+
+
+# main parent
+    root=TreeNode('   World ')
+    root.add_child(country1)
+    root.add_child(country2)
+
+    root.print_tree()
+if __name__=='__main__':
+    built_tree()
